@@ -26,7 +26,32 @@ function addUser($pseudo, $mail, $img, $mdp)
     }
 }
 
-// Fonction qui vérifie si l'utilisateur existe déjà (par son pseudo)
+// Fonction qui vérifie si l'utilisateur existe et retourne les infos
+function getUserInfos($pseudo)
+{
+    $db = getBDD();
+
+    try {
+        $sql = "SELECT * FROM users WHERE name_user = :name_user";
+        $req = $db->prepare($sql);
+
+        $req->execute([":name_user" => $pseudo]);
+        $data = $req->fetch(PDO::FETCH_OBJ);
+
+        if (empty($data)) {
+            // Le pseudo n'existe pas
+            return false;
+        } else {
+            // L'utilisateur existe, renvoie ses infos
+            return $data;
+        }
+    } catch (PDOException $e) {
+        echo $e->getMEssage();
+        return false;
+    }
+}
+
+// Fonction qui vérifie si l'utilisateur existe et retourne les infos
 function checkUserExist($pseudo)
 {
     $db = getBDD();

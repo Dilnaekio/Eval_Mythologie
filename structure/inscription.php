@@ -46,6 +46,7 @@ include "../BDD/requetes.php";
         <!-- Indications pour s'enregistrer correctement -->
         <!-- TODO : remplir les indications -->
         <!-- TODO : ajouter un regex pour vérifier la validité du mdp ? -->
+        <!-- TODO : changer la couleur + add icon en fonction de ce que l'utilisateur entre ? -->
         <section class="d-flex flex-column align-items-center">
             <h2>Conditions d'enregistrement</h2>
             <ul>
