@@ -37,13 +37,12 @@ include "BDD/requetes.php";
                 <article class="carousel-item active">
                     <!-- TODO : envoyer les bonnes informations via GET pour les afficher sur la page article_display.php -->
                     <a href="structure/article_display.php">
-                        <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise -->
+                        <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise vu qu'elle prend 100% de la width du parent-->
                         <!-- TODO : changer la SRC img par le véritable lien stocké en BDD -->
                         <figure>
                             <img src="https://picsum.photos/200" class="d-block w-100" alt="Nom de l'image">
                         </figure>
                     </a>
-
 
                     <div class="carousel-caption d-none d-md-block">
                         <h2 class="title_article">Titre de l'article</h2>
