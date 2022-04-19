@@ -20,7 +20,6 @@ include "../BDD/requetes.php";
 </head>
 
 <body>
-    <!-- TODO : Voir si je peux faire une page header et une page footer pour seulement les inclures aux bons endroits -->
     <?php include "header.php";?>
 
     <main class="container"></main>
