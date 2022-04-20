@@ -1,6 +1,7 @@
 <?php
 session_start();
-// TODO : il faudra enlever le session des pages car cela génère une erreur. Ou bien je peux utiliser les données sessions sans avoir à mettre un session_start ici ?
+
+$target_dir = "../assets/img/avatars/";
 ?>
 
 <header>
@@ -35,16 +36,21 @@ session_start();
                 </ul>
             </div>
 
+            <?php 
+                if (isset($_SESSION["user_name"])) { ?>
+                    <figure class="text-center figure m-0 p-2">
+                        <!-- TODO : redéfinir la taille de l'avatar pour qu'il soit rond et petit -->
+                        <img src="<?= $target_dir.$_SESSION["user_avatar"]?>" id="avatar" class="figure-img" alt="Avatar de <?php $_SESSION["user_name"] ?>">
+                    </figure>
+                    <?php }; ?>
+
             <!-- TODO : ajouter des nouvelles pages en rapport avec les liens -->
-            <!-- TODO : ajouter une condition pour vérifier si session isset -->
             <div class="btn-group">
-                <!-- <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> -->
-                <!-- TODO : ajouter une condition pour vérifier si session isset -->
-                <!-- TODO : si ce n'est pas set, il faut que le drop down menu ne soit pas visible -->
                 <?php
                 try {
                     // TODO : HTLMSPECIALCHAR
                     if (isset($_SESSION["user_name"])) { ?>
+                        
                         <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <?= $_SESSION["user_name"] ?></button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Mes informations</a></li>

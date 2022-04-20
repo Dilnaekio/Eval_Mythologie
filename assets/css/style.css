@@ -7,3 +7,9 @@
 #header{
     padding: 1rem 5rem;
 }
+
+#avatar{
+    height:10vh;
+    width:10vh;
+    border-radius: 50%;
+}
