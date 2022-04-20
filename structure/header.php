@@ -18,12 +18,21 @@ $target_dir = "../assets/img/avatars/";
                     <li class="nav-item m-1">
                         <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                     </li>
-                    <li class="nav-item m-1">
-                        <a class="nav-link" href="article_creation.php">Ajouter un article</a>
-                    </li>
+                    <!-- Ici, je vérifie pour le LI suivant si une session est ouverte ou non. Si elle ne l'est pas, le visiteur ne peut pas ajouter d'article -->
+                    <?php try {
+                        if (!isset($_SESSION["user_name"])) {
+                        } else { ?>
+                            <li class="nav-item m-1">
+                                <a class="nav-link" href="article_creation.php">Ajouter un article</a>
+                            </li>
+                    <?php }
+                    } catch (Exception $e) {
+                        $e->getMessage();
+                    }; ?>
                     <li class="nav-item m-1">
                         <a class="nav-link" href="article_display_all.php">Articles</a>
                     </li>
+                    <!-- Ici, je vérifie si une session est ouverte ou non. Si elle l'est, inutile d'afficher les liens connexion/inscription -->
                     <?php try {
                         if (!isset($_SESSION["user_name"])) { ?>
                             <li class="nav-item m-1">
@@ -42,7 +51,6 @@ $target_dir = "../assets/img/avatars/";
                     } catch (Exception $e) {
                         $e->getMessage();
                     }; ?>
-
                 </ul>
             </div>
 
