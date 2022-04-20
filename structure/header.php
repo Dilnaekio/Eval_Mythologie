@@ -33,9 +33,16 @@ $target_dir = "../assets/img/avatars/";
                     } catch (Exception $e) {
                         $e->getMessage();
                     }; ?>
-                    <li class="nav-item m-1">
-                        <a class="nav-link" href="inscription.php">Inscription</a>
-                    </li>
+                    <?php try {
+                        if (!isset($_SESSION["user_name"])) { ?>
+                            <li class="nav-item m-1">
+                                <a class="nav-link" href="inscription.php">Inscription</a>
+                            </li>
+                    <?php }
+                    } catch (Exception $e) {
+                        $e->getMessage();
+                    }; ?>
+
                 </ul>
             </div>
 
