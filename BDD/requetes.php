@@ -161,18 +161,19 @@ function checkUserRank($pseudo)
 // REQUETES ARTICLES -----------------------------------------------------------------------------------------------------------------------------------------------------
 // Fonction pour ajouter un article sur la BDD
 // TODO : ajouter l'auteur lors de la création => passer la FOREIGN KEY pour lier l'article au bon auteur
-function addArticle($title, $sum, $content, $author)
+function addArticle($title, $sum, $content, $img, $author)
 {
     $db = getBDD();
 
     try {
-        $sql = "INSERT INTO articles (name_article, sum_article, content_article, id_user) VALUES (:name_article, :sum_article, :content_article, :id_user);";
+        $sql = "INSERT INTO articles (name_article, sum_article, content_article, img_article, id_user) VALUES (:name_article, :sum_article, :content_article, :img_article, :id_user);";
         $req = $db->prepare($sql);
 
         $req->execute([
             ":name_article" => $title,
             ":sum_article" => $sum,
             ":content_article" => $content,
+            ":img_article" => $img,
             ":id_user" => $author
         ]);
     } catch (PDOException $e) {

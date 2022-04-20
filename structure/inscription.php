@@ -26,16 +26,16 @@ include "header.php";
         <section class="p-4">
             <form action="../BDD/add_user.php" method="post" enctype="multipart/form-data" class="d-flex flex-column">
                 <label for="inscription-pseudo">Nom utilisateur : </label>
-                <input type="text" name="inscription-pseudo" id="inscription-pseudo" class="mb-2">
+                <input type="text" name="inscription-pseudo" id="inscription-pseudo" class="mb-2" required>
 
                 <label for="inscription-mail">Adresse mail : </label>
-                <input type="text" name="inscription-mail" id="inscription-mail" class="mb-2">
+                <input type="text" name="inscription-mail" id="inscription-mail" class="mb-2" required>
 
                 <label for="inscription-pwd">Mot de passe : </label>
-                <input type="text" name="inscription-pwd" id="inscription-pwd" class="mb-2">
+                <input type="text" name="inscription-pwd" id="inscription-pwd" class="mb-2" required>
 
                 <label for="inscription-avatar">Avatar : </label>
-                <input type="file" name="inscription-avatar" id="inscription-avatar" class="mb-2">
+                <input type="file" name="inscription-avatar" id="inscription-avatar" class="mb-2" required>
 
                 <input type="submit" name="submit-inscription" value="S'enregistrer">
             </form>

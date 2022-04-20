@@ -13,3 +13,8 @@
     width:10vh;
     border-radius: 50%;
 }
+
+/* article_creation.php ----------------------------------------------- */
+#article-content{
+    resize: none;
+}

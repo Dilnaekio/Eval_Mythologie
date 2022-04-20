@@ -7,15 +7,15 @@ $uploadOk = 1;
 $errors = [];
 $target_dir = "../assets/img/avatars/";
 
-$fileName = explode(".", $_FILES["inscription-avatar"]["name"]);
-$newFileName = $_POST["inscription-pseudo"] . "." . end($fileName);
+$fileName = explode(".", htmlspecialchars($_FILES["inscription-avatar"]["name"]));
+$newFileName = htmlspecialchars($_POST["inscription-pseudo"]) . "." . end($fileName);
 $target_file = $target_dir . basename($newFileName);
 
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 // Vérifie que le bouton a bien été set up, puis si c'est une image et donne son format
-if (isset($_POST["submitInscription"])) {
-    $check = getimagesize($_FILES["inscriptionImg"]["tmp_name"]);
+if (isset($_POST["submit-inscription"])) {
+    $check = getimagesize($_FILES["inscription-avatar"]["tmp_name"]);
     if ($check !== false) {
         $uploadOk = 1;
     } else {

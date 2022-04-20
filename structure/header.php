@@ -1,4 +1,5 @@
 <?php
+// TODO : faire le include header.php en haut de document fait que le contenu de head se retrouve ensuite dans le body quand on regarde la console du navigateur
 session_start();
 
 $target_dir = "../assets/img/avatars/";
