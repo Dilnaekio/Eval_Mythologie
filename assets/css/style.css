@@ -2,3 +2,8 @@
 #connection-pseudo, #connection-pwd{
     width: 50vw;
 }
+
+/* header.php ----------------------------------------------- */
+#header{
+    padding: 1rem 5rem;
+}

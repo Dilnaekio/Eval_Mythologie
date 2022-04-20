@@ -1,6 +1,6 @@
 <?php
-session_start();
 include "../BDD/requetes.php";
+include "header.php";
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +20,6 @@ include "../BDD/requetes.php";
 </head>
 
 <body>
-    <!-- Le header -->
-    <?php include "header.php";?>
 
     <main class="container">
         <!-- Formulaire pour l'inscription d'un utilisateur -->

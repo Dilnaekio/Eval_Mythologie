@@ -1,6 +1,7 @@
 <?php
-session_start();
 include "../BDD/requetes.php";
+include "../controllers/redirect.php";
+include "header.php";
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +21,6 @@ include "../BDD/requetes.php";
 </head>
 
 <body>
-    <!-- Le header -->
-    <?php include "header.php"; ?>
 
     <main class="container">
         <!-- Formulaire pour la connexion d'un utilisateur -->
@@ -40,12 +39,13 @@ include "../BDD/requetes.php";
 
     <?php
     // Si l'utilisateur clique sur submit-connection, vérifie les infos entrées
-    if(isset($_POST["submit-connection"])){
+    if (isset($_POST["submit-connection"])) {
         $infos = getUserInfos($_POST["connection-pseudo"]);
         $testMdp = password_verify($_POST["connection-pwd"], $infos->mdp_user);
 
         // Si true, set up les variables de session et renvoie vers la page d'accueil. Je n'ai besoin que de tester le mdp car cela signifie qu'il a été capable de récupérer un utilisateur en BDD et que le mdp entré correspond à cet utilisateur
-        if($testMdp){
+        if ($testMdp) {
+
             // Je récupère toutes les données en BDD qui pourront être utilisées pour cette session
             $_SESSION["logged_in"] = true;
             $_SESSION["user_id"] = $infos->id_user;
@@ -54,11 +54,10 @@ include "../BDD/requetes.php";
             $_SESSION["user_avatar"] = $infos->img_user;
             $_SESSION["user_rank"] = $infos->rank;
 
-            header("Location: ../index.php");
+            redirect("index.php");
         } else {
             echo "<p> <span style=\"color:rgb(255,0,0);text-align:center;\">Mauvais identifiants, désolé ! :-)<strong> ";
         }
-        
     };
 
     // TODO : set up la super globale session pour la connexion réussie + renvoyer vers la page d'accueil (ajouter la possibilité de se déco) + message accueil personnalisé
