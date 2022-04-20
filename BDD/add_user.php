@@ -60,9 +60,9 @@ if ($uploadOk == 1) {
     addUser($_POST["inscription-pseudo"], $_POST["inscription-mail"], $newFileName, $_POST["inscription-pwd"]);
     $_SESSION["errors"] = $errors;
 
-    unset($_FILE["inscription-avatar"]);
     header("Location: ../structure/connection.php");
 } else {
-    // $_SESSION["errors"] = $errors;
+    $_SESSION["errors"] = $errors;
     header("Location: ../structure/inscription.php");
 }
+// TODO : si j'ai une erreur lors de la création, les autres étapes vont quand même se faire et peuvent générer une autre erreur lors de la deuxième tentative

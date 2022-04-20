@@ -21,7 +21,7 @@ include "../BDD/requetes.php";
 
 <body>
     <!-- Le header -->
-    <?php include "header.php"; ?>
+    <?php include "header.php";?>
 
     <main class="container">
         <!-- Formulaire pour l'inscription d'un utilisateur -->
@@ -67,6 +67,7 @@ include "../BDD/requetes.php";
             // Si des erreurs sont enregistrées dans la super globale SESSION => elles seront affichées
             if (isset($_SESSION["errors"])) {
                 $errors = $_SESSION["errors"];
+                var_dump($errors);
 
                 foreach ($errors as $result => $value) {
                     echo "<p>" . $value . "</p>";
