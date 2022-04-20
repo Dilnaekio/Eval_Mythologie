@@ -13,9 +13,6 @@ $target_dir = "../assets/img/avatars/";
             </button>
 
             <!-- TODO : changer la couleur texte des liens pour une couleur plus claire -->
-            <!-- TODO : il y a un problème avec les liens => en fonction de la page sur laquelle nous sommes, le chemin dossier n'est plus bon. 
-            Exemple : si je suis sur ajouter un article, index.php devient ../index.php. Si je suis sur index.php, accueil doit mener à index.php et non ../index.php
-            SOLUTION POSSIBLE : avoir un header pour l'index, et un autre pour tous les autres liens nav-->
             <div class="collapse navbar-collapse justify-content-evenly" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item m-1">
@@ -27,22 +24,30 @@ $target_dir = "../assets/img/avatars/";
                     <li class="nav-item m-1">
                         <a class="nav-link" href="article_display_all.php">Articles</a>
                     </li>
-                    <li class="nav-item m-1">
-                        <a class="nav-link" href="connection.php">Connexion</a>
-                    </li>
+                    <?php try {
+                        if (!isset($_SESSION["user_name"])) { ?>
+                            <li class="nav-item m-1">
+                                <a class="nav-link" href="connection.php">Connexion</a>
+                            </li>
+                    <?php }
+                    } catch (Exception $e) {
+                        $e->getMessage();
+                    }; ?>
                     <li class="nav-item m-1">
                         <a class="nav-link" href="inscription.php">Inscription</a>
                     </li>
                 </ul>
             </div>
 
-            <?php 
+            <?php try {
                 if (isset($_SESSION["user_name"])) { ?>
                     <figure class="text-center figure m-0 p-2">
-                        <!-- TODO : redéfinir la taille de l'avatar pour qu'il soit rond et petit -->
-                        <img src="<?= $target_dir.$_SESSION["user_avatar"]?>" id="avatar" class="figure-img" alt="Avatar de <?php $_SESSION["user_name"] ?>">
+                        <img src="<?= $target_dir . $_SESSION["user_avatar"] ?>" id="avatar" class="figure-img" alt="Avatar de <?php $_SESSION["user_name"] ?>">
                     </figure>
-                    <?php }; ?>
+            <?php };
+            } catch (Exception $e) {
+                $e->getMessage();
+            }; ?>
 
             <!-- TODO : ajouter des nouvelles pages en rapport avec les liens -->
             <div class="btn-group">
@@ -50,7 +55,7 @@ $target_dir = "../assets/img/avatars/";
                 try {
                     // TODO : HTLMSPECIALCHAR
                     if (isset($_SESSION["user_name"])) { ?>
-                        
+
                         <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <?= $_SESSION["user_name"] ?></button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Mes informations</a></li>
