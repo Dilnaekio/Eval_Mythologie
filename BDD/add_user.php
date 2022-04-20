@@ -57,7 +57,7 @@ if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpe
 // Si tout est OK, ajouter l'image dans le dossier destinataire + add user sur BDD + rediriger avec un get confirmant succès
 if ($uploadOk == 1) {
     move_uploaded_file($_FILES["inscription-avatar"]["tmp_name"], $target_file);
-    addUser($_POST["inscription-pseudo"], $_POST["inscription-mail"], $newFileName, $_POST["inscription-pwd"]);
+    addUser(htmlspecialchars($_POST["inscription-pseudo"]), htmlspecialchars($_POST["inscription-mail"]), $newFileName, htmlspecialchars($_POST["inscription-pwd"]));
     $_SESSION["errors"] = $errors;
 
     header("Location: ../structure/connection.php");

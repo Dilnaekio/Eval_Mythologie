@@ -15,7 +15,7 @@
                     <li class="nav-item m-1">
                         <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                     </li>
-                    <!-- Ici, je vérifie pour le LI suivant si une session est ouverte ou non. Si elle ne l'est pas, le visiteur ne peut pas ajouter d'article -->
+                    <!-- Ici, je vérifie pour la balise <li> suivante si une session est ouverte ou non. Si elle ne l'est pas, le visiteur ne peut pas ajouter d'article -->
                     <?php try {
                         if (!isset($_SESSION["user_name"])) {
                         } else { ?>

@@ -40,8 +40,8 @@ include "header.php";
     <?php
     // Si l'utilisateur clique sur submit-connection, vérifie les infos entrées
     if (isset($_POST["submit-connection"])) {
-        $infos = getUserInfos($_POST["connection-pseudo"]);
-        $testMdp = password_verify($_POST["connection-pwd"], $infos->mdp_user);
+        $infos = getUserInfos(htmlspecialchars($_POST["connection-pseudo"]));
+        $testMdp = password_verify(htmlspecialchars($_POST["connection-pwd"]), $infos->mdp_user);
 
         // Si true, set up les variables de session et renvoie vers la page d'accueil. Je n'ai besoin que de tester le mdp car cela signifie qu'il a été capable de récupérer un utilisateur en BDD et que le mdp entré correspond à cet utilisateur
         if ($testMdp) {
