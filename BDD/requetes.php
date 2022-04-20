@@ -149,8 +149,7 @@ function checkUserRank($pseudo)
             return false;
         } else {
             // Le pseudo existe donc retourner le rang de l'utilisateur
-            // TODO : au lieu de retourner "true", il faut que je renvoie le rang de l'utilisateur. Pour le moment je retourne juste DATA car il faut que je me rappelle comment chopper la propriété rank
-            return $data;
+            return $data->rank;
         }
     } catch (PDOException $e) {
         echo $e->getMEssage();
@@ -160,7 +159,6 @@ function checkUserRank($pseudo)
 
 // REQUETES ARTICLES -----------------------------------------------------------------------------------------------------------------------------------------------------
 // Fonction pour ajouter un article sur la BDD
-// TODO : ajouter l'auteur lors de la création => passer la FOREIGN KEY pour lier l'article au bon auteur
 function addArticle($title, $sum, $content, $img, $author)
 {
     $db = getBDD();
@@ -201,6 +199,23 @@ function getArticle($author, $date)
             ]
         );
         $data = $req->fetch(PDO::FETCH_OBJ);
+        return $data;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
+// Fonction récupérant tous les articles
+function getAllArticles()
+{
+    $db = getBDD();
+
+    try {
+        $sql = "SELECT * from articles ORDER BY creation_date_article DESC;";
+        $req = $db->prepare($sql);
+        $req->execute([]);
+        $data = $req->fetchAll(PDO::FETCH_OBJ);
         return $data;
     } catch (PDOException $e) {
         echo $e->getMessage();

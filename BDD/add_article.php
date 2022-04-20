@@ -1,5 +1,3 @@
-<!-- TODO : Ajouter l'ID de l'utilisateur grâce à la variable session id -->
-
 <?php
 session_start();
 

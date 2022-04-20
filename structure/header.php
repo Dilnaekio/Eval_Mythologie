@@ -69,7 +69,6 @@ $target_dir = "../assets/img/avatars/";
             <div class="btn-group">
                 <?php
                 try {
-                    // TODO : HTLMSPECIALCHAR
                     if (isset($_SESSION["user_name"])) { ?>
 
                         <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <?= $_SESSION["user_name"] ?></button>

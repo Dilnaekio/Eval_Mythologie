@@ -7,9 +7,6 @@
             </button>
 
             <!-- TODO : changer la couleur texte des liens pour une couleur plus claire -->
-            <!-- TODO : il y a un problème avec les liens => en fonction de la page sur laquelle nous sommes, le chemin dossier n'est plus bon. 
-            Exemple : si je suis sur ajouter un article, index.php devient ../index.php. Si je suis sur index.php, accueil doit mener à index.php et non ../index.php
-            SOLUTION POSSIBLE : avoir un header pour l'index, et un autre pour tous les autres liens nav-->
             <div class="collapse navbar-collapse justify-content-evenly" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item m-1">

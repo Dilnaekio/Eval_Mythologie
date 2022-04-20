@@ -59,8 +59,6 @@ include "header.php";
             echo "<p> <span style=\"color:rgb(255,0,0);text-align:center;\">Mauvais identifiants, désolé ! :-)<strong> ";
         }
     };
-
-    // TODO : set up la super globale session pour la connexion réussie + renvoyer vers la page d'accueil (ajouter la possibilité de se déco) + message accueil personnalisé
     ?>
 
     <!-- Le footer -->

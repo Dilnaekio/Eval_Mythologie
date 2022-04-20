@@ -31,23 +31,56 @@ include "header.php";
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
             </div>
+
             <div class="carousel-inner">
-                <article class="carousel-item active">
-                    <!-- TODO : envoyer les bonnes informations via GET pour les afficher sur la page article_display.php -->
-                    <a href="structure/article_display.php">
-                        <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise vu qu'elle prend 100% de la width du parent-->
-                        <!-- TODO : changer la SRC img par le véritable lien stocké en BDD -->
-                        <figure>
-                            <img src="https://picsum.photos/200" class="d-block w-100" alt="Nom de l'image">
-                        </figure>
-                    </a>
+                <?php
+                $target_dir_article = "../assets/img/articles/";
+                $articles = getAllArticles();
 
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="title_article">Titre de l'article</h2>
-                        <p class="sum_article">Résumé de l'article</p>
-                    </div>
-                </article>
+                // Pour chaque article, j'ajoute un item au carrousel. D'abord je teste quel est le premier article pour lui ajouter la classe active
+                foreach ($articles as $key => $article) :
+                    $id_author = $article->id_user;
+                    $id_article = $article->id_article;
+                    $article_img = $article->img_article;
+                    $article_title = $article->name_article;
+                    $article_sum = $article->sum_article;
 
+                    if ($key === array_key_first($articles)) { ?>
+
+                        <article class="carousel-item active">
+                            <!-- TODO : envoyer les bonnes informations via GET pour les afficher sur la page article_display.php => id_author id_article-->
+                            <a href="structure/article_display.php">
+                                <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise vu qu'elle prend 100% de la width du parent-->
+                                <figure>
+                                    <img src="<?= $target_dir_article . $article_img ?>" class="d-block w-100" alt="<?= $article_img ?>">
+                                </figure>
+                            </a>
+
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2 class="title_article"><?= $article_title ?></h2>
+                                <p class="sum_article"><?= $article_sum ?></p>
+                            </div>
+                        </article>
+                    <?php } else { ?>
+                        <article class="carousel-item">
+                            <!-- TODO : envoyer les bonnes informations via GET pour les afficher sur la page article_display.php => id_author id_article-->
+                            <a href="structure/article_display.php">
+                                <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise vu qu'elle prend 100% de la width du parent-->
+                                <figure>
+                                    <img src="<?= $target_dir_article . $article_img ?>" class="d-block w-100" alt="<?= $article_img ?>">
+                                </figure>
+                            </a>
+
+                            <div class="carousel-caption d-none d-md-block">
+                                <h2 class="title_article"><?= $article_title ?></h2>
+                                <p class="sum_article"><?= $article_sum ?></p>
+                            </div>
+                        </article>
+                <?php }
+                endforeach;
+                ?>
+
+                <!-- TODO : Il y a un problème de navigation avec les boutons du carrousel -->
                 <!-- Bouton contrôlant l'affichage du carrousel -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
