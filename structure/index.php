@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "../BDD/requetes.php";
+$articles = getAllArticles();
 ?>
 
 <!DOCTYPE html>
@@ -24,19 +25,23 @@ include "../BDD/requetes.php";
     <?php include "header.php"; ?>
     <main class="container">
 
-        <!-- TODO:  1 - récupérer les articles
-                    2 - forEach pour créer une button type button avec un aria-label évoluant en fonction du nombre de slide => à faire dans le containeur"carousel-indicators"
-                    3 - forEach pour créer les carousel-item => dans le containeur carousel-inner -->
         <section id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button> -->
+                <?php $count = 0;
+                foreach ($articles as $key => $article) :
+                    $count++;
+
+                    if ($key === array_key_first($articles)) { ?>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide <?= $count ?>"></button>
+                    <?php } else { ?>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide <?= $count ?>"></button>
+                <?php };
+                endforeach ?>
             </div>
 
             <div class="carousel-inner">
                 <?php
                 $target_dir_article = "../assets/img/articles/";
-                $articles = getAllArticles();
 
                 // Pour chaque article, j'ajoute un item au carrousel. D'abord je teste quel est le premier article pour lui ajouter la classe active
                 foreach ($articles as $key => $article) :
@@ -57,7 +62,7 @@ include "../BDD/requetes.php";
                                 </figure>
                             </a>
 
-                            <div class="carousel-caption d-none d-md-block">
+                            <div class="carousel-caption d-none d-md-block presentation">
                                 <h2 class="title_article"><?= $article_title ?></h2>
                                 <p class="sum_article"><?= $article_sum ?></p>
                             </div>
@@ -72,7 +77,7 @@ include "../BDD/requetes.php";
                                 </figure>
                             </a>
 
-                            <div class="carousel-caption d-none d-md-block">
+                            <div class="carousel-caption d-none d-md-block presentation">
                                 <h2 class="title_article"><?= $article_title ?></h2>
                                 <p class="sum_article"><?= $article_sum ?></p>
                             </div>

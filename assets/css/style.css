@@ -18,3 +18,8 @@
 #article-content{
     resize: none;
 }
+
+/* index.php ----------------------------------------------- */
+.presentation{
+    background-color: rgba(0, 0, 0, 0.3);
+}
