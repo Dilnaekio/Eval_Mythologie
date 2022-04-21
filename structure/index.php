@@ -1,6 +1,6 @@
 <?php
+session_start();
 include "../BDD/requetes.php";
-include "header.php";
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,7 @@ include "header.php";
 
 <body>
 
+    <?php include "header.php"; ?>
     <main class="container">
 
         <!-- TODO:  1 - récupérer les articles
@@ -80,7 +81,7 @@ include "header.php";
                 endforeach;
                 ?>
 
-                <!-- TODO : Il y a un problème de navigation avec les boutons du carrousel -->
+                <!-- TODO : Il y a un problème de navigation avec les boutons du carrousel => voir l'étape 2 du todo précédant le foreach-->
                 <!-- Bouton contrôlant l'affichage du carrousel -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

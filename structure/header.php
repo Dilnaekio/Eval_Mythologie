@@ -1,7 +1,4 @@
 <?php
-// TODO : faire le include header.php en haut de document fait que le contenu de head se retrouve ensuite dans le body quand on regarde la console du navigateur
-session_start();
-
 $target_dir = "../assets/img/avatars/";
 ?>
 
@@ -78,7 +75,7 @@ $target_dir = "../assets/img/avatars/";
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="deconnection.php">Se déconnecter</a></li>
+                            <li><a class="dropdown-item" href="../controllers/deconnection.php">Se déconnecter</a></li>
                         </ul>
                     <?php } else { ?>
                         <button type="button" class="btn btn-danger"><a href="connection.php">Connexion</a></button>

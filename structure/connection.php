@@ -1,7 +1,7 @@
 <?php
+session_start();
 include "../BDD/requetes.php";
 include "../controllers/redirect.php";
-include "header.php";
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +21,8 @@ include "header.php";
 </head>
 
 <body>
+
+    <?php include "header.php"; ?>
 
     <main class="container">
         <!-- Formulaire pour la connexion d'un utilisateur -->
