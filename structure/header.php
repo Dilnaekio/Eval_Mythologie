@@ -10,7 +10,6 @@ $target_dir = "../assets/img/avatars/";
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- TODO : changer la couleur texte des liens pour une couleur plus claire -->
             <div class="collapse navbar-collapse justify-content-evenly" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item m-1">

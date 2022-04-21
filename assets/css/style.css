@@ -1,39 +1,52 @@
 /* GENERAL ----------------------------------------------- */
-.padding-nav{
-    padding : 1rem 5rem;
+.padding-nav {
+    padding: 1rem 5rem;
 }
 
 /* connection.php ----------------------------------------------- */
-#connection-pseudo, #connection-pwd{
+#connection-pseudo,
+#connection-pwd {
     width: 50vw;
 }
 
-/* header.php ----------------------------------------------- */
-#avatar{
-    height:10vh;
-    width:10vh;
+/* header.php + footer.php----------------------------------------------- */
+#avatar {
+    height: 10vh;
+    width: 10vh;
     border-radius: 50%;
 }
 
-header a{
-    color: white!important;
+header a {
+    color: white !important;
+}
+
+header a:hover {
+    color: yellow !important;
+}
+
+header .dropdown-item:hover {
+    color: green !important;
 }
 
 footer a {
-    color: black!important;
+    color: black !important;
+}
+
+footer a:hover {
+    color: #0275d8 !important;
 }
 
 /* article_creation.php ----------------------------------------------- */
-#article-content{
+#article-content {
     resize: none;
 }
 
 /* index.php ----------------------------------------------- */
-.presentation{
+.presentation {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
 /* Ici j'ai redéfini une propriété d'une classe boostrap */
-.carousel-caption{
-    bottom:0rem;
+.carousel-caption {
+    bottom: 0rem;
 }
