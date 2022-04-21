@@ -36,8 +36,8 @@ $articles = getAllArticles();
                     $id_author = $article->id_user;
                     $id_article = $article->id_article;
                     $article_img = $article->img_article;
-                    $article_title = $article->name_article;
-                    $article_sum = $article->sum_article;
+                    $article_title = htmlspecialchars($article->name_article);
+                    $article_sum = htmlspecialchars($article->sum_article);
 
                     if ($key === array_key_first($articles)) { ?>
 

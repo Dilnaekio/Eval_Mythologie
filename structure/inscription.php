@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "../BDD/requetes.php";
-include "header.php";
 ?>
 
 <!DOCTYPE html>

@@ -69,7 +69,7 @@ $target_dir = "../assets/img/avatars/";
                     if (isset($_SESSION["user_name"])) { ?>
 
                         <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <?= $_SESSION["user_name"] ?></button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu bg-success">
                             <li><a class="dropdown-item" href="#">Mes informations</a></li>
                             <li><a class="dropdown-item" href="#">Mes articles</a></li>
                             <li>

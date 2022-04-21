@@ -7,8 +7,8 @@ $uploadOk = 1;
 $errors = [];
 $target_dir = "../assets/img/articles/";
 
-$fileName = explode(".", htmlspecialchars($_FILES["article-img"]["name"]));
-$newFileName = htmlspecialchars($_POST["article-title"]) . "." . end($fileName);
+$fileName = explode(".", $_FILES["article-img"]["name"]);
+$newFileName = $_POST["article-title"] . "." . end($fileName);
 $target_file = $target_dir . basename($newFileName);
 
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -57,7 +57,7 @@ if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpe
 // Si tout est OK, ajouter l'image dans le dossier destinataire + add user sur BDD + rediriger avec un get confirmant succès
 if ($uploadOk == 1) {
     move_uploaded_file($_FILES['article-img']["tmp_name"], $target_file);
-    addArticle(htmlspecialchars($_POST["article-title"]), htmlspecialchars($_POST["article-sum"]), htmlspecialchars($_POST["article-content"]), $newFileName, $_SESSION["user_id"]);
+    addArticle($_POST["article-title"], $_POST["article-sum"], $_POST["article-content"], $newFileName, $_SESSION["user_id"]);
     $_SESSION["errors"] = $errors;
 
     header("Location: ../structure/index.php");
