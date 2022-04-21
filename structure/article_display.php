@@ -15,7 +15,6 @@ $author = htmlspecialchars($author_infos->name_user);
 $target_dir_article = "../assets/img/articles/";
 
 // TODO : comme je l'ai vu plus tôt, le HTMLSPECIALCHARS casse mes " ou ' dans les textes
-// TODO : trouver un moyen non déprécié de traduire la date en FR
 
 // Je récupère le rank de l'utilisateur avant la création du HTML
 $rank = $_SESSION["user_rank"];
