@@ -25,19 +25,7 @@ $articles = getAllArticles();
     <?php include "header.php"; ?>
     <main class="container">
 
-        <section id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <?php $count = 0;
-                foreach ($articles as $key => $article) :
-                    $count++;
-
-                    if ($key === array_key_first($articles)) { ?>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide <?= $count ?>"></button>
-                    <?php } else { ?>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide <?= $count ?>"></button>
-                <?php };
-                endforeach ?>
-            </div>
+        <section id="carousel-articles" class="carousel slide" data-bs-ride="carousel">
 
             <div class="carousel-inner">
                 <?php
@@ -88,12 +76,12 @@ $articles = getAllArticles();
 
                 <!-- TODO : Il y a un problème de navigation avec les boutons du carrousel => voir l'étape 2 du todo précédant le foreach-->
                 <!-- Bouton contrôlant l'affichage du carrousel -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <button class="carousel-control-prev presentation" type="button" data-bs-target="#carousel-articles" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
 
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <button class="carousel-control-next presentation" type="button" data-bs-target="#carousel-articles" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>

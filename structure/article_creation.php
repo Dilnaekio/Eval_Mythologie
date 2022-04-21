@@ -23,12 +23,14 @@ include "../BDD/requetes.php";
     <?php include "header.php"; ?>
 
     <main class="container">
+        <!-- TODO: Tout caractère spécial est mal géré niveau contenu -->
 
         <section class="d-flex flex-column">
             <h1>Ajouter un article</h1>
             <!-- Formulaire pour la création d'un nouvel article -->
             <form action="../BDD/add_article.php" method="post" enctype="multipart/form-data" class="d-flex flex-column">
                 <!-- Titre de l'article-->
+                <!-- TODO: si l'article a des caractères spéciaux, le nommage de l'article + le renommage de l'image vont être cassés -->
                 <label for="article-title">Titre de l'article</label>
                 <input type="text" name="article-title" id="article-title" placeholder="Exemple : Guilhaume le Grand" required>
 
