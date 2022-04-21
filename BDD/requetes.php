@@ -27,6 +27,31 @@ function addUser($pseudo, $mail, $img, $mdp)
 }
 
 // Fonction qui vérifie si l'utilisateur existe et retourne les infos
+function getUserInfos($pseudo)
+{
+    $db = getBDD();
+
+    try {
+        $sql = "SELECT * FROM users WHERE name_user = :name_user";
+        $req = $db->prepare($sql);
+
+        $req->execute([":name_user" => $pseudo]);
+        $data = $req->fetch(PDO::FETCH_OBJ);
+
+        if (empty($data)) {
+            // Le pseudo n'existe pas
+            return false;
+        } else {
+            // L'utilisateur existe, renvoie ses infos
+            return $data;
+        }
+    } catch (PDOException $e) {
+        echo $e->getMEssage();
+        return false;
+    }
+}
+
+// Fonction qui vérifie l'id passée et retourne l'auteur lié à l'article
 function getAuthorInfos($id)
 {
     $db = getBDD();
@@ -51,7 +76,7 @@ function getAuthorInfos($id)
     }
 }
 
-// Fonction qui vérifie si l'utilisateur existe et retourne les infos
+// Fonction qui vérifie si l'utilisateur existe et retourne true or false
 function checkUserExist($pseudo)
 {
     $db = getBDD();
@@ -156,6 +181,23 @@ function addArticle($title, $sum, $content, $img, $author)
             ":img_article" => $img,
             ":id_user" => $author
         ]);
+    } catch (PDOException $e) {
+        echo $e->getMEssage();
+        return false;
+    }
+}
+
+function deleteArticle()
+{
+    $db = getBDD();
+
+    $id_article = $_POST["suppressed_article"];
+
+    try {
+        $sql = "DELETE FROM articles WHERE id_article = :id_article";
+        $req = $db->prepare($sql);
+
+        $req->execute([":id_article" => $id_article]);
     } catch (PDOException $e) {
         echo $e->getMEssage();
         return false;

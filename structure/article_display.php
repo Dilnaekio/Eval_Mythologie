@@ -7,13 +7,18 @@ $author_infos = getAuthorInfos($_GET["id_author"]);
 
 // Puis j'associe les données à des variables que je vais réutiliser
 $title = htmlspecialchars($article->name_article);
-$date = htmlspecialchars($article->creation_date_article);
+$date = date_create($article->creation_date_article);
+$format_date = date_format($date, 'l F Y H:i:s');
 $img = $article->img_article;
 $content = htmlspecialchars($article->content_article);
 $author = htmlspecialchars($author_infos->name_user);
 $target_dir_article = "../assets/img/articles/";
 
 // TODO : comme je l'ai vu plus tôt, le HTMLSPECIALCHARS casse mes " ou ' dans les textes
+// TODO : trouver un moyen non déprécié de traduire la date en FR
+
+// Je récupère le rank de l'utilisateur avant la création du HTML
+$rank = $_SESSION["user_rank"];
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +53,20 @@ $target_dir_article = "../assets/img/articles/";
                     <img src="<?= $target_dir_article . $img ?>" alt="<?= $title ?>" class="img-fluid">
                 </figure>
             </aside>
+
+            <p>Article créé par <?= $author ?> le <?= $format_date ?></p>
         </section>
+
+        <!-- TODO: vérifier le rank ici -->
+        <?php if($rank === "admin"){ ?>
+        <section>
+            <form action="../BDD/delete_article.php" method="post">
+                <!-- TODO : ce serait bien d'ajouter une demande de confirmation avant suppression -->
+                <input type="hidden" id="suppressed_article" name="suppressed_article" value="<?= $_GET["id_article"] ?>">
+                <input type="submit" name="submit-suppression" value="Supprimer" class="bg-danger rounded">
+            </form>
+        </section>
+        <?php }; ?>
     </main>
 
     <!-- Le footer -->
