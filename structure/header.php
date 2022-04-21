@@ -63,6 +63,7 @@ $target_dir = "../assets/img/avatars/";
             }; ?>
 
             <!-- TODO : ajouter des nouvelles pages en rapport avec les liens -->
+            <!-- TODO : changer le hover de couleur blanche -->
             <div class="btn-group">
                 <?php
                 try {

@@ -27,15 +27,15 @@ function addUser($pseudo, $mail, $img, $mdp)
 }
 
 // Fonction qui vérifie si l'utilisateur existe et retourne les infos
-function getUserInfos($pseudo)
+function getAuthorInfos($id)
 {
     $db = getBDD();
 
     try {
-        $sql = "SELECT * FROM users WHERE name_user = :name_user";
+        $sql = "SELECT * FROM users WHERE id_user = :id_user";
         $req = $db->prepare($sql);
 
-        $req->execute([":name_user" => $pseudo]);
+        $req->execute([":id_user" => $id]);
         $data = $req->fetch(PDO::FETCH_OBJ);
 
         if (empty($data)) {
@@ -70,24 +70,6 @@ function checkUserExist($pseudo)
             // Le pseudo existe
             return true;
         }
-    } catch (PDOException $e) {
-        echo $e->getMEssage();
-        return false;
-    }
-}
-
-function getUserId($pseudo)
-{
-    $db = getBDD();
-
-    try {
-        $sql = "SELECT id_user from users where name_user = :name_user";
-        $req = $db->prepare($sql);
-
-        $req->execute([":name_user" => $pseudo]);
-        $data = $req->fetch(PDO::FETCH_OBJ);
-
-        return $data;
     } catch (PDOException $e) {
         echo $e->getMEssage();
         return false;
@@ -218,3 +200,5 @@ function getAllArticles()
         return false;
     }
 }
+
+// TODO : ajouter une requête inner join pour récupérer tous les articles de l'utilisateur connecté
