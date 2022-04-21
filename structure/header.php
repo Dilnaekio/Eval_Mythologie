@@ -2,9 +2,9 @@
 $target_dir = "../assets/img/avatars/";
 ?>
 
-<header>
+<header class="mb-4">
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fs-1">
-        <div id="header" class="container-fluid">
+        <div id="header" class="container-fluid padding-nav">
             <a class="navbar-brand" href="#">Mythos</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -68,7 +68,7 @@ $target_dir = "../assets/img/avatars/";
                 try {
                     if (isset($_SESSION["user_name"])) { ?>
 
-                        <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <?= $_SESSION["user_name"] ?></button>
+                        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <?= $_SESSION["user_name"] ?></button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Mes informations</a></li>
                             <li><a class="dropdown-item" href="#">Mes articles</a></li>
@@ -78,7 +78,7 @@ $target_dir = "../assets/img/avatars/";
                             <li><a class="dropdown-item" href="../controllers/deconnection.php">Se déconnecter</a></li>
                         </ul>
                     <?php } else { ?>
-                        <button type="button" class="btn btn-danger"><a href="connection.php">Connexion</a></button>
+                        <button type="button" class="btn btn-success"><a href="connection.php">Connexion</a></button>
                 <?php }
                 } catch (Exception $e) {
                     $e->getmessage();

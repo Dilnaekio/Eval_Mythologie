@@ -1,6 +1,6 @@
-<footer>
+<footer class="mt-4">
     <nav class="navbar navbar-expand-lg navbar-light bg-warning fs-1">
-        <div class="container-fluid">
+        <div class="container-fluid padding-nav">
             <a class="navbar-brand" href="#">Mythos</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse justify-content-evenly" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item m-1">
-                        <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+                        <a class="nav-link" aria-current="page" href="#">Haut de page</a>
                     </li>
                     <!-- Ici, je vérifie pour la balise <li> suivante si une session est ouverte ou non. Si elle ne l'est pas, le visiteur ne peut pas ajouter d'article -->
                     <?php try {
