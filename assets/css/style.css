@@ -3,6 +3,20 @@
     padding: 1rem 5rem;
 }
 
+main {
+    height: 100vh;
+}
+
+figure {
+    height: 100%;
+    margin: 0rem;
+}
+
+figure img {
+    height: 100%;
+    margin: auto;
+}
+
 /* connection.php ----------------------------------------------- */
 #connection-pseudo,
 #connection-pwd {
@@ -44,6 +58,10 @@ footer a:hover {
 /* index.php ----------------------------------------------- */
 .presentation {
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-inner article {
+    height: 80vh;
 }
 
 /* Ici j'ai redéfini une propriété d'une classe boostrap */
