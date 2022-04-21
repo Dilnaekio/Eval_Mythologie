@@ -42,8 +42,7 @@ $articles = getAllArticles();
                     if ($key === array_key_first($articles)) { ?>
 
                         <article class="carousel-item active" data-bs-interval="10000">
-                            <!-- TODO : envoyer les bonnes informations via GET pour les afficher sur la page article_display.php => id_author id_article-->
-                            <a href="article_display.php">
+                            <a href="article_display.php?id_article=<?=$id_article?>">
                                 <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise vu qu'elle prend 100% de la width du parent-->
                                 <figure>
                                     <img src="<?= $target_dir_article . $article_img ?>" class="d-block w-100" alt="<?= $article_img ?>">
@@ -58,7 +57,7 @@ $articles = getAllArticles();
                     <?php } else { ?>
                         <article class="carousel-item" data-bs-interval="10000">
                             <!-- TODO : envoyer les bonnes informations via GET pour les afficher sur la page article_display.php => id_author id_article-->
-                            <a href="article_display.php">
+                            <a href="article_display.php?id_article=<?=$id_article?>">
                                 <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise vu qu'elle prend 100% de la width du parent-->
                                 <figure>
                                     <img src="<?= $target_dir_article . $article_img ?>" class="d-block w-100" alt="<?= $article_img ?>">

@@ -181,21 +181,17 @@ function addArticle($title, $sum, $content, $img, $author)
 }
 
 // Fonction pour récupérer un article sur lequel l'utilisateur aura cliqué
-// Je recherche l'auteur + la date car le titre pourrait très bien être utilisé plusieurs fois. Donc cela me renverrait plusieurs résultats alors que la date sera unique
-function getArticle($author, $date)
+function getArticle($article)
 {
-    $id = getUserId($author);
     $db = getBDD();
 
     try {
         // TODO : vérifier que ma requête fonctionne correctement avec l'intégration d'une variable + la bonne récupération id_user pour les deux
-        $sql = "SELECT * from articles where creation_date_article = :creation_date;" + "SELECT * from articles INNER JOIN users ON (articles.id_user =:article_id_user) = (users.id_user =:user_id_user);";
+        $sql = "SELECT * from articles INNER JOIN users ON articles.id_user = users.id_user WHERE articles.id_article = :id_article";
         $req = $db->prepare($sql);
         $req->execute(
             [
-                ":creation_date" => $date,
-                ":article_id_user" => "article.$id",
-                ":user_id_user" => "users.$id"
+                ":id_article" => $article,
             ]
         );
         $data = $req->fetch(PDO::FETCH_OBJ);
