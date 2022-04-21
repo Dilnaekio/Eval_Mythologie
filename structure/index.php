@@ -41,9 +41,9 @@ $articles = getAllArticles();
 
                     if ($key === array_key_first($articles)) { ?>
 
-                        <article class="carousel-item active">
+                        <article class="carousel-item active" data-bs-interval="10000">
                             <!-- TODO : envoyer les bonnes informations via GET pour les afficher sur la page article_display.php => id_author id_article-->
-                            <a href="structure/article_display.php">
+                            <a href="article_display.php">
                                 <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise vu qu'elle prend 100% de la width du parent-->
                                 <figure>
                                     <img src="<?= $target_dir_article . $article_img ?>" class="d-block w-100" alt="<?= $article_img ?>">
@@ -56,9 +56,9 @@ $articles = getAllArticles();
                             </div>
                         </article>
                     <?php } else { ?>
-                        <article class="carousel-item">
+                        <article class="carousel-item" data-bs-interval="10000">
                             <!-- TODO : envoyer les bonnes informations via GET pour les afficher sur la page article_display.php => id_author id_article-->
-                            <a href="structure/article_display.php">
+                            <a href="article_display.php">
                                 <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise vu qu'elle prend 100% de la width du parent-->
                                 <figure>
                                     <img src="<?= $target_dir_article . $article_img ?>" class="d-block w-100" alt="<?= $article_img ?>">
@@ -74,7 +74,6 @@ $articles = getAllArticles();
                 endforeach;
                 ?>
 
-                <!-- TODO : Il y a un problème de navigation avec les boutons du carrousel => voir l'étape 2 du todo précédant le foreach-->
                 <!-- Bouton contrôlant l'affichage du carrousel -->
                 <button class="carousel-control-prev presentation" type="button" data-bs-target="#carousel-articles" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

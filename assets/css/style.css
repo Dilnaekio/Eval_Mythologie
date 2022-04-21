@@ -32,3 +32,8 @@ footer a {
 .presentation{
     background-color: rgba(0, 0, 0, 0.3);
 }
+
+/* Ici j'ai redéfini une propriété d'une classe boostrap */
+.carousel-caption{
+    bottom:0rem;
+}
