@@ -20,10 +20,12 @@ $target_dir = "../assets/img/avatars/";
                     <?php try {
                         if (!isset($_SESSION["user_name"])) {
                         } else { ?>
+
+                        <?php if($_SESSION["user_rank"] === "admin"){ ?>
                             <li class="nav-item m-1">
                                 <a class="nav-link" href="article_creation.php">Ajouter un article</a>
                             </li>
-                    <?php }
+                    <?php }}
                     } catch (Exception $e) {
                         $e->getMessage();
                     }; ?>

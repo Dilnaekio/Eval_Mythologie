@@ -57,7 +57,6 @@ $rank = $_SESSION["user_rank"];
             <p>Article créé par <?= $author ?> le <?= $format_date ?></p>
         </section>
 
-        <!-- TODO: vérifier le rank ici -->
         <?php if($rank === "admin"){ ?>
         <section>
             <form action="../BDD/delete_article.php" method="post">
