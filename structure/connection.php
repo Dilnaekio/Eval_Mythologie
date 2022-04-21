@@ -24,7 +24,7 @@ include "../controllers/redirect.php";
 
     <?php include "header.php"; ?>
 
-    <main class="container">
+    <main class="container text-center">
         <!-- Formulaire pour la connexion d'un utilisateur -->
         <section class="p-4">
             <form action="#" method="post" class="d-flex flex-column align-items-center">

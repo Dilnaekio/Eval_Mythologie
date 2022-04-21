@@ -23,7 +23,7 @@ include "../BDD/requetes.php";
 
     <?php include "header.php"; ?>
 
-    <main class="container">
+    <main class="container text-center">
         <!-- Formulaire pour l'inscription d'un utilisateur -->
         <section class="p-4">
             <form action="../BDD/add_user.php" method="post" enctype="multipart/form-data" class="d-flex flex-column">

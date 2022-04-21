@@ -22,7 +22,7 @@ include "../BDD/requetes.php";
 <body>
     <?php include "header.php"; ?>
 
-    <main class="container">
+    <main class="container text-center">
         <!-- TODO: Tout caractère spécial est mal géré niveau contenu -->
 
         <section class="d-flex flex-column">
