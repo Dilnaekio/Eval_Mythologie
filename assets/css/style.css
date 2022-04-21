@@ -3,10 +3,6 @@
     padding: 1rem 5rem;
 }
 
-main {
-    height: 100vh;
-}
-
 figure {
     height: 100%;
     margin: 0rem;
@@ -15,6 +11,10 @@ figure {
 figure img {
     height: 100%;
     margin: auto;
+}
+
+section aside {
+    height: 80vh;
 }
 
 /* connection.php ----------------------------------------------- */
@@ -68,3 +68,5 @@ footer a:hover {
 .carousel-caption {
     bottom: 0rem;
 }
+
+/* article.php ----------------------------------------------- */

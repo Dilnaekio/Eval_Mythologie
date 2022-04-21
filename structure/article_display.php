@@ -50,7 +50,7 @@ $rank = $_SESSION["user_rank"];
 
             <aside>
                 <figure>
-                    <img src="<?= $target_dir_article . $img ?>" alt="<?= $title ?>" class="img-fluid">
+                    <img src="<?= $target_dir_article . $img ?>" alt="<?= $title ?>">
                 </figure>
             </aside>
 
