@@ -210,7 +210,6 @@ function getArticle($article)
     $db = getBDD();
 
     try {
-        // TODO : vérifier que ma requête fonctionne correctement avec l'intégration d'une variable + la bonne récupération id_user pour les deux
         $sql = "SELECT * from articles INNER JOIN users ON articles.id_user = users.id_user WHERE articles.id_article = :id_article";
         $req = $db->prepare($sql);
         $req->execute(
@@ -242,5 +241,3 @@ function getAllArticles()
         return false;
     }
 }
-
-// TODO : ajouter une requête inner join pour récupérer tous les articles de l'utilisateur connecté
