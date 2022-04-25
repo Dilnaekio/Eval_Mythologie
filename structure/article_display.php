@@ -61,6 +61,7 @@ $rank = $_SESSION["user_rank"];
             <form action="../BDD/delete_article.php" method="post">
                 <!-- TODO : ce serait bien d'ajouter une demande de confirmation avant suppression -->
                 <input type="hidden" id="suppressed_article" name="suppressed_article" value="<?= $_GET["id_article"] ?>">
+                <input type="hidden" id="suppressed_img" name="suppressed_img" value="<?= $target_dir_article . $img ?>">
                 <input type="submit" name="submit-suppression" value="Supprimer" class="bg-danger rounded">
             </form>
         </section>

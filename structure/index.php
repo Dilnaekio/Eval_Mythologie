@@ -55,9 +55,7 @@ $articles = getAllArticles();
                         </article>
                     <?php } else { ?>
                         <article class="carousel-item" data-bs-interval="1000000">
-                            <!-- TODO : envoyer les bonnes informations via GET pour les afficher sur la page article_display.php => id_author id_article-->
                             <a href="article_display.php?id_article=<?=$id_article?>&id_author=<?=$id_author?>">
-                                <!-- TODO : changer affichage de l'image => en w-100 elle se pixelise vu qu'elle prend 100% de la width du parent-->
                                 <figure>
                                     <img src="<?= $target_dir_article . $article_img ?>" class="d-block" alt="<?= $article_img ?>">
                                 </figure>
