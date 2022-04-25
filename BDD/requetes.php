@@ -187,11 +187,12 @@ function addArticle($title, $sum, $content, $img, $author)
     }
 }
 
-function deleteArticle()
+function deleteArticle($id)
 {
     $db = getBDD();
 
-    $id_article = $_POST["suppressed_article"];
+    // $id_article = $_POST["suppressed_article"];
+    $id_article = $id;
 
     try {
         $sql = "DELETE FROM articles WHERE id_article = :id_article";

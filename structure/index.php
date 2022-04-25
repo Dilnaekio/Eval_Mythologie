@@ -42,7 +42,7 @@ $articles = getAllArticles();
                     if ($key === array_key_first($articles)) { ?>
 
                         <article class="carousel-item active" data-bs-interval="1000000">
-                            <a href="article_display.php?id_article=<?=$id_article?>&id_author=<?=$id_author?>">
+                            <a href="article_display.php?id_article=<?= $id_article ?>&id_author=<?= $id_author ?>">
                                 <figure>
                                     <img src="<?= $target_dir_article . $article_img ?>" class="d-block" alt="<?= $article_img ?>">
                                 </figure>
@@ -51,11 +51,13 @@ $articles = getAllArticles();
                             <div class="carousel-caption d-none d-md-block presentation">
                                 <h2 class="title_article"><?= $article_title ?></h2>
                                 <p class="sum_article"><?= $article_sum ?></p>
+
+                                <button class="suppression_btn_js" value="<?= $id_article ?>"> Tentative suppression</button>
                             </div>
                         </article>
                     <?php } else { ?>
                         <article class="carousel-item" data-bs-interval="1000000">
-                            <a href="article_display.php?id_article=<?=$id_article?>&id_author=<?=$id_author?>">
+                            <a href="article_display.php?id_article=<?= $id_article ?>&id_author=<?= $id_author ?>">
                                 <figure>
                                     <img src="<?= $target_dir_article . $article_img ?>" class="d-block" alt="<?= $article_img ?>">
                                 </figure>
@@ -86,6 +88,7 @@ $articles = getAllArticles();
     <!-- Le footer -->
     <?php include "footer.php"; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script type="module" src="../controllers/main.js"></script>
 </body>
 
 </html>

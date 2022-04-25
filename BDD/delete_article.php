@@ -3,8 +3,8 @@ session_start();
 
 include "requetes.php";
 
-deleteArticle();
-$fileName = $_POST["suppressed_img"];
+deleteArticle($_GET["id_article"]);
+// $fileName = $_POST["suppressed_img"];
 
 unlink($fileName);
 
