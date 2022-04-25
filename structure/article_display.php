@@ -7,8 +7,11 @@ $author_infos = getAuthorInfos($_GET["id_author"]);
 
 // Puis j'associe les données à des variables que je vais réutiliser
 $title = htmlspecialchars($article->name_article);
-$date = date_create($article->creation_date_article);
-$format_date = date_format($date, 'l F Y H:i:s');
+// $date = date_create($article->creation_date_article);
+// $format_date = date_format($date, 'l F Y H:i:s');
+
+$format_date = date($article->creation_date_article, strtotime("l F Y H:i:s"));
+
 $img = $article->img_article;
 $content = htmlspecialchars($article->content_article);
 $author = htmlspecialchars($author_infos->name_user);

@@ -16,10 +16,13 @@
                     <?php try {
                         if (!isset($_SESSION["user_name"])) {
                         } else { ?>
-                            <li class="nav-item m-1">
-                                <a class="nav-link" href="article_creation.php">Ajouter un article</a>
-                            </li>
+
+                            <?php if ($_SESSION["user_rank"] === "admin") { ?>
+                                <li class="nav-item m-1">
+                                    <a class="nav-link" href="article_creation.php">Ajouter un article</a>
+                                </li>
                     <?php }
+                        }
                     } catch (Exception $e) {
                         $e->getMessage();
                     }; ?>

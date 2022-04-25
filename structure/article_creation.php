@@ -20,7 +20,12 @@ include "../BDD/requetes.php";
 </head>
 
 <body>
-    <?php include "header.php"; ?>
+
+    <?php
+    if ($_SESSION["user_rank"] !== "admin") {
+        header("location: index.php");
+    }
+    include "header.php"; ?>
 
     <main class="container text-center">
         <!-- TODO: Tout caractère spécial est mal géré niveau contenu -->
