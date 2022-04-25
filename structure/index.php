@@ -42,7 +42,7 @@ $articles = getAllArticles();
                     if ($key === array_key_first($articles)) { ?>
 
                         <article class="carousel-item active" data-bs-interval="1000000">
-                            <a href="article_display.php?id_article=<?=$id_article?>&id_author=<?=$id_author?>">
+                            <a href="article_display.php?id_article=<?= $id_article ?>&id_author=<?= $id_author ?>">
                                 <figure>
                                     <img src="<?= $target_dir_article . $article_img ?>" class="d-block" alt="<?= $article_img ?>">
                                 </figure>
@@ -55,7 +55,7 @@ $articles = getAllArticles();
                         </article>
                     <?php } else { ?>
                         <article class="carousel-item" data-bs-interval="1000000">
-                            <a href="article_display.php?id_article=<?=$id_article?>&id_author=<?=$id_author?>">
+                            <a href="article_display.php?id_article=<?= $id_article ?>&id_author=<?= $id_author ?>">
                                 <figure>
                                     <img src="<?= $target_dir_article . $article_img ?>" class="d-block" alt="<?= $article_img ?>">
                                 </figure>
