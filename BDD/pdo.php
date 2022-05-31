@@ -2,7 +2,7 @@
 
     function getBDD(){
         $host = "host=localhost";
-        $dbName = "eval_mythologie_php";
+        $dbName = "adrar_eval_mythologie_php";
 
         if($host == (null || "")){
             throw new Exception ("Le chemin host est null ou non défini");
